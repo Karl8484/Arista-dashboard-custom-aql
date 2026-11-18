@@ -8,33 +8,33 @@ for cell, value in data {
 }
 
 let presence = newDict()
-presence["Amic1"] = newDict()
-presence["Amic2"] = newDict()
-presence["Amic3"] = newDict()
-presence["Amic4"] = newDict()
-presence["Amic5"] = newDict()
+presence["device1"] = newDict()
+presence["device2"] = newDict()
+presence["device3"] = newDict()
+presence["device4"] = newDict()
+presence["device5"] = newDict()
 
-presence["Amic1"]["Connected"] = "no"
-presence["Amic2"]["Connected"] = "no"
-presence["Amic3"]["Connected"] = "no"
-presence["Amic4"]["Connected"] = "no"
-presence["Amic5"]["Connected"] = "no"
+presence["device1"]["Connected"] = "no"
+presence["device2"]["Connected"] = "no"
+presence["device3"]["Connected"] = "no"
+presence["device4"]["Connected"] = "no"
+presence["device5"]["Connected"] = "no"
 
 for ip, hostname in hostnames {
-    if hostname == "Amic1" {
-        presence["Amic1"]["Connected"] = "yes"
+    if hostname == "device1" {
+        presence["device1"]["Connected"] = "yes"
     }
-    if hostname == "Amic2" {
-        presence["Amic2"]["Connected"] = "yes"
+    if hostname == "device2" {
+        presence["device2"]["Connected"] = "yes"
     }
-    if hostname == "Amic3" {
-        presence["Amic3"]["Connected"] = "yes"
+    if hostname == "device3" {
+        presence["device3"]["Connected"] = "yes"
     }
-    if hostname == "Amic4" {
-        presence["Amic4"]["Connected"] = "yes"
+    if hostname == "device4" {
+        presence["device4"]["Connected"] = "yes"
     }
-    if hostname == "Amic5" {
-        presence["Amic5"]["Connected"] = "yes"
+    if hostname == "device5" {
+        presence["device5"]["Connected"] = "yes"
     }
 }
 
