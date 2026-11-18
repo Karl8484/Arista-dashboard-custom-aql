@@ -1,0 +1,41 @@
+let data = `analytics:/entities/source/lldp/v1`
+let hostnames = newDict()
+
+for cell, value in data {
+    for ip, details in value {
+        hostnames[ip] = details["hostname"]
+    }
+}
+
+let presence = newDict()
+presence["Amic1"] = newDict()
+presence["Amic2"] = newDict()
+presence["Amic3"] = newDict()
+presence["Amic4"] = newDict()
+presence["Amic5"] = newDict()
+
+presence["Amic1"]["Connected"] = "no"
+presence["Amic2"]["Connected"] = "no"
+presence["Amic3"]["Connected"] = "no"
+presence["Amic4"]["Connected"] = "no"
+presence["Amic5"]["Connected"] = "no"
+
+for ip, hostname in hostnames {
+    if hostname == "Amic1" {
+        presence["Amic1"]["Connected"] = "yes"
+    }
+    if hostname == "Amic2" {
+        presence["Amic2"]["Connected"] = "yes"
+    }
+    if hostname == "Amic3" {
+        presence["Amic3"]["Connected"] = "yes"
+    }
+    if hostname == "Amic4" {
+        presence["Amic4"]["Connected"] = "yes"
+    }
+    if hostname == "Amic5" {
+        presence["Amic5"]["Connected"] = "yes"
+    }
+}
+
+presence

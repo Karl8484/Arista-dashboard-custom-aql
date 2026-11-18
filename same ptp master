@@ -1,0 +1,24 @@
+let ptpGmID = `*:/Sysdb/ptp/status/parentDS` | map(merge(_value))
+
+let output = newDict()
+
+let targetValue = newDict()
+targetValue["v0"] = yourvalue
+targetValue["v1"] = yourvalue
+targetValue["v2"] = yourvalue
+targetValue["v3"] = yourvalue
+targetValue["v4"] = yourvalue
+targetValue["v5"] = yourvalue
+targetValue["v6"] = yourvalue
+targetValue["v7"] = yourvalue
+
+for devID, devData in ptpGmID {
+    output[devID] = newDict()
+    output[devID]["identity"] = devData["grandmasterIdentity"]
+    if devData["grandmasterIdentity"]["value"] == targetValue {
+        output[devID]["status"] = "YES"
+    } else {
+        output[devID]["status"] = "NO"
+    }
+}
+output[devID]["status"]

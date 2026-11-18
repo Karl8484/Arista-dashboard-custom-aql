@@ -1,0 +1,36 @@
+let data = `<_device>:/Sysdb/interface/status/eth/phy/slice/*/intfStatus/*`
+let res = newDict()
+for cell in data {
+    for interface, value in cell {
+        let status  = merge(value)["debouncedLinkStatus"]["Name"]
+        let status2 = merge(value)["enabledState"]["Name"]
+        #let status1 = merge(value)["lastLinkStatusChangeTime"]
+        let status3 = merge(value)["speedEnum"]["Name"]
+        res[interface] = newDict() | setFields("Status", status2, "Speed", status3, "Link", status)
+    }
+}
+let data2 = `<_device>:/Sysdb/interface/config/eth/phy/slice/*/intfConfig/*`
+for cell in data2 {
+    for interface, value in cell {
+        let description = merge(value)["description"]
+            res[interface] = res[interface] | setFields("Description", description)
+        }
+    }
+let data3 = `<_device>:/Sysdb/environment/power/status/poePort/*`
+for cell in data3{
+    for interface, value in data3 {
+        let poe  = merge(value)["portStatus"]["poePortState"]["Name"]
+    res[interface] = res[interface]| setFields("POE Status", poe)
+    }
+}
+
+let data3 = `<_device>:/Sysdb/interface/profile/config/intfToProfile/*/profile`
+for cell in data3{
+    for interface, value in data3 {
+     let profile = str(merge(value)) 
+     let profile = strCut(profile, 8, -1)
+        res[interface] = res[interface] | setFields("Profile", profile)
+        }
+}
+
+res
