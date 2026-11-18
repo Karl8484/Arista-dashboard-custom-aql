@@ -1,6 +1,6 @@
 # CloudVision Custom Dashboards (AQL)
 
-Custom-built dashboards for Arista CloudVision, powered by AQL (Arista Query Language).
+Custom-built dashboards for Arista CloudVision (AQL)
 
 1. In CloudVision, open **Dashboards** and add a widget.
 2. Set the data source to **AQL**.
